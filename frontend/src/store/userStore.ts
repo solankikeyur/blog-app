@@ -1,20 +1,21 @@
 import { defineStore } from "pinia";
 import { login, logout } from "../services/authService";
 
+
 export const useUserStore = defineStore('user', {
     state: () => ({
-        user : null,
-        token: localStorage.getItem("token") || null
+        user: null as object | null,
+        token: localStorage.getItem("token") || '' as string
     }),
 
     getters: {
-        isAuthenticated: (state) => {
+        isAuthenticated: (state): boolean => {
             return state.token ? true : false;
         }
     },
 
     actions: {
-        async loginUser(credentials) {
+        async loginUser(credentials: object) {
             const {data} = await login(credentials);
             this.token = data.data.token;
             localStorage.setItem('token', this.token);
@@ -22,7 +23,7 @@ export const useUserStore = defineStore('user', {
         },
         async logoutUser() {
             await logout();
-            this.token = null;
+            this.token = '';
             localStorage.removeItem('token');
             this.user = null;
         }

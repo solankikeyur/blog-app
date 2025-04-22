@@ -1,6 +1,6 @@
 import axios from "../plugins/axios";
 
-const login = (credentials) => {
+const login = (credentials: object) => {
     return axios.post('/authenticate', credentials);
 }
 

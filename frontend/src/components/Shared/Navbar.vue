@@ -7,19 +7,19 @@
         </div>
         <div class="hidden md:flex items-center space-x-6">
           <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
-          <a href="#" class="text-gray-700 hover:text-blue-600">All Blogs</a>
-          <a href="#" class="text-gray-700 hover:text-blue-600" v-if="isAuthenticated" >My Blogs</a>
+          <router-link to="all-posts" class="text-gray-700 hover:text-blue-600">All Blogs</router-link>
+          <router-link :class="`text-gray-700 hover:text-blue-600`" to="my-posts" v-if="isAuthenticated">My Blogs</router-link>
           <div class="nav-right" v-if="isAuthenticated" >
-            <button @click="handleLogout" >Logout</button>
+            <button @click="handleLogout" >Logout</button> 
           </div>
         </div>
       </div>
     </div>
   </nav>
 </template>
-<script setup>
+<script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { useUserStore } from '../../store/userStore';
+import { useUserStore } from '../../store/userStore.ts';
 
 const router = useRouter();
 const {isAuthenticated} = useUserStore();

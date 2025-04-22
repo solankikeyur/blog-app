@@ -48,10 +48,10 @@
     </div>
   </GuestLayout>
 </template>
-<script setup>
+<script setup lang="ts">
 import { reactive } from "vue";
 import GuestLayout from "../../layouts/GuestLayout.vue";
-import { useUserStore } from "../../store/userStore";
+import { useUserStore } from "../../store/userStore.ts";
 import { useRouter } from "vue-router";
 
 const credentials = reactive({

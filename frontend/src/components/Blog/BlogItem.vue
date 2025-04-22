@@ -5,12 +5,12 @@
     <div class="p-6 flex-1">
       <h2 class="text-2xl font-semibold mb-2">{{ title }}</h2>
       <p class="text-gray-600 mb-4">
-        {{ body.substring(0, 100) }}
+        {{ body?.substring(0, 100) }}
       </p>
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts" >
 const {title, body} = defineProps({
     title : String,
     body: String

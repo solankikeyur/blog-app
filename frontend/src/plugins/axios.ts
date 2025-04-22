@@ -21,7 +21,7 @@ instance.interceptors.response.use(
             const validationErrors = error.response.data.errors;
             return Promise.reject(validationErrors);
         } else if(status === 401) {
-          userStore.token = null;
+          userStore.token = '';
           userStore.user = null;
           localStorage.removeItem('token');
           router.push({path: '/login'});

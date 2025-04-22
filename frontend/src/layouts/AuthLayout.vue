@@ -9,11 +9,11 @@
     <Footer></Footer>
   </body>
 </template>
-<script setup>
+<script setup lang="ts">
 import Navbar from "../components/Shared/Navbar.vue";
 import Footer from "../components/Shared/Footer.vue";
 import { onMounted } from "vue";
-import { useUserStore } from "../store/userStore";
+import { useUserStore } from "../store/userStore.ts";
 import { useRouter } from "vue-router";
 
 const {isAuthenticated} = useUserStore();
